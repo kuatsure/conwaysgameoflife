@@ -110,6 +110,7 @@ angular
         @history  = []
         @board    = _init @height, @width, @random
         @isItOver = false
+        @auto     = false
 
       @stopAutoRun = ->
         $interval.cancel @autoGenerate
