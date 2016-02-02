@@ -28,7 +28,7 @@
     <span ng-click="app.newGame()">New Game</span>
   </div>
 
-  <div class="btn btn--small btn--combo btn--positive" ng-if="!app.auto">
+  <div class="btn btn--small btn--combo btn--positive" ng-if="!app.auto && !app.isItOver">
     <span ng-click="app.auto = !app.auto; app.nextGeneration();" title="Toggle Autorun"><i class="fa" ng-class="app.auto ? 'fa-check-square-o' : 'fa-square-o'"></i></span>
     <span ng-click="app.nextGeneration()">Next Generation</span>
   </div>

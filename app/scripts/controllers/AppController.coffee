@@ -25,9 +25,14 @@ angular
 
         return board
 
-      _checkForEndGame = ( board ) =>
-        @isItOver = false
+      _checkForEndGame = ( prevCount, newCount ) =>
+        if newCount is prevCount
+          @isItOver = true
 
+        if newCount is 0
+          @isItOver = true
+
+      _traverseBoardForNeighbors = ( board ) ->
         totalCount = 0
 
         for r in [ 0...board.length ]
@@ -36,11 +41,12 @@ angular
 
             totalCount += count
 
-        if totalCount is 0
-          @isItOver = true
+        return totalCount
 
       _figureNextGeneration = ( board ) ->
         newBoard = []
+
+        prevCount = _traverseBoardForNeighbors board
 
         for r in [ 0...board.length ]
           newRow = []
@@ -50,7 +56,9 @@ angular
 
           newBoard.push newRow
 
-        _checkForEndGame newBoard
+        newCount = _traverseBoardForNeighbors newBoard
+
+        _checkForEndGame prevCount, newCount
 
         return newBoard
 
@@ -134,9 +142,15 @@ angular
 
         @history  = @history.slice 0, index
 
+        # game isn't over since it went back in time
+        @isItOver   = false
+
       @toggleCell = ( row, cell ) ->
         # reset history
-        @history = []
+        @history    = []
+
+        # game isn't over since it restarted
+        @isItOver   = false
 
         @board[row][cell] = !@board[row][cell]
 
