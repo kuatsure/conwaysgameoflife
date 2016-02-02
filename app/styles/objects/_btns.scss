@@ -17,6 +17,16 @@
   }
 }
 
+.btn--negative {
+  border-color: shade( $red, 20% );
+  background-color: shade( $red, 10% );
+  color: $white;
+
+  @include attention {
+    background-color: shade( $red, 20% );
+  }
+}
+
 .btn--combo {
   > * {
     display: inline-block;

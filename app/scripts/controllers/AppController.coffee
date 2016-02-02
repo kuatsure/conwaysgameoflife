@@ -66,17 +66,23 @@ angular
         row >= 0 and row < board.length and cell >= 0 and cell < board[row].length and board[row][cell]
 
       # Assign simple scoped variables
-      @height   = 15
-      @width    = 15
-      @interval = 1500
+      @height         = 15
+      @width          = 15
+      @interval       = 1500
 
-      @random   = false
-      @auto     = false
+      @random         = false
+      @auto           = false
+
+      @autoGenerate   = false
 
       # define public functions
       @newGame = ->
         @history  = []
         @board    = _init @height, @width, @random
+
+      @stopAutoRun = ->
+        $interval.cancel @autoGenerate
+        @auto = !@auto
 
       @nextGeneration = ->
         @history.push @board
@@ -84,7 +90,7 @@ angular
         @board = _figureNextGeneration @board unless @auto
 
         if @auto
-          $interval ( =>
+          @autoGenerate = $interval ( =>
             @history.push @board
 
             @board = _figureNextGeneration @board
