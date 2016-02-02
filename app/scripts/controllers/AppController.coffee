@@ -26,8 +26,8 @@ angular
         return board
 
       _checkForEndGame = ( prevCount, newCount ) =>
-        if newCount is prevCount
-          @isItOver = true
+        # if newCount is prevCount
+        #   @isItOver = true
 
         if newCount is 0
           @isItOver = true
