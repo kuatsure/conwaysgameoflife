@@ -19,9 +19,17 @@
 <body class="page">
   <h1>@@NAME</h1>
 
-  Height: <input type="text" ng-model="app.height" />
-  Width: <input type="text" ng-model="app.width" />
-  Interval: <input type="text" ng-model="app.interval" />
+  <p>
+    Height: <input type="text" ng-model="app.height" />
+  </p>
+
+  <p>
+    Width: <input type="text" ng-model="app.width" />
+  </p>
+
+  <p>
+    Interval: <input type="text" ng-model="app.interval" />
+  </p>
 
   <div class="btn btn--small btn--combo">
     <span ng-click="app.random = !app.random"><i class="fa" ng-class="app.random ? 'fa-check-square-o' : 'fa-square-o'"></i></span>
