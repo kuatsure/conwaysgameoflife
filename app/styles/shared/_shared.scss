@@ -1,0 +1,11 @@
+.the-board,
+.board-history {
+
+  td {
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    vertical-align: middle;
+    transition: all .2s ease-in;
+  }
+}

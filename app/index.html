@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="conwaysGameOfLifeApp" ng-controller="AppController as app" ng-strict-di="true">
+<head>
+  <title>@@NAME</title>
+
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="@@DESCRIPTION" />
+  <meta name="keywords" content="@@KEYWORDS" />
+
+  <!-- build:css({app,.tmp}) styles/screen.css -->
+
+  <link rel="stylesheet" href="styles/screen.css" />
+  <!-- endbuild -->
+</head>
+
+<body class="page">
+  <h1>@@NAME</h1>
+
+  <div class="btn btn--small" ng-click="app.newGame()">
+    New
+  </div>
+
+  <div class="btn btn--small btn--positive" ng-click="app.nextGeneration()">
+    Next
+  </div>
+
+  <table class="the-board">
+    <tr ng-repeat="row in app.board track by $index">
+      <td ng-repeat="cell in row track by $index"
+        ng-click="app.toggleCell( $parent.$index, $index )"
+        class="{{ app.cellClass( $parent.$index, $index ) }}">
+
+        <span ng-show="cell"><i class="fa fa-circle-o"></i></span>
+      </td>
+    </tr>
+  </table>
+
+  <p ng-show="app.history.length > 0">Rewind History!</p>
+
+  <table class="board-history">
+    <tr>
+      <td ng-repeat="point in app.history track by $index"
+        ng-click="app.previousGeneration( $index )">{{ $index }}</td>
+    </tr>
+  </table>
+
+  <!-- build:js({app,.tmp}) scripts/app.js -->
+  <script src="bower_components/angular/angular.js" type="text/javascript"></script>
+  <script src="scripts/@@NAME.js" type="text/javascript"></script>
+  <!-- endbuild -->
+</body>
+</html>

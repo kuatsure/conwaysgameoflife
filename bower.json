@@ -1,0 +1,24 @@
+{
+  "name": "conwaysgameoflife",
+  "private": true,
+  "description": "Conway's Game of Life in Angular",
+  "version": "0.0.0",
+  "authors": [
+    {
+      "name": "Jarrett Drouillard",
+      "email": "jarrett@thestyl.us"
+    }
+  ],
+  "dependencies": {
+    "inuit-starter-kit": "~0.2.7",
+    "inuit-lists": "~0.1.0",
+    "inuit-images": "~0.3.2",
+    "inuit-paragraphs": "~0.1.4",
+    "inuit-headings": "~0.2.2",
+    "angular": "~1.4.9",
+    "inuit-buttons": "^0.4.2",
+    "helpful-helpers": "^0.7.0",
+    "font-awesome": "^4.5.0"
+  },
+  "devDependencies": {}
+}

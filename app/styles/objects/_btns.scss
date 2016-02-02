@@ -1,0 +1,18 @@
+.btn {
+  transition: all .2s ease-in;
+
+  @include attention {
+    background-color: shade( $inuit-btn-background, 20% );
+    outline: none;
+  }
+}
+
+.btn--positive {
+  border-color: shade( $green, 20% );
+  background-color: shade( $green, 10% );
+  color: $white;
+
+  @include attention {
+    background-color: shade( $green, 20% );
+  }
+}
