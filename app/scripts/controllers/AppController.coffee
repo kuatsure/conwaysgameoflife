@@ -25,6 +25,20 @@ angular
 
         return board
 
+      _checkForEndGame = ( board ) =>
+        @isItOver = false
+
+        totalCount = 0
+
+        for r in [ 0...board.length ]
+          for c in [ 0...board[r].length ]
+            count = _neighborCount board, r, c
+
+            totalCount += count
+
+        if totalCount is 0
+          @isItOver = true
+
       _figureNextGeneration = ( board ) ->
         newBoard = []
 
@@ -35,6 +49,8 @@ angular
             newRow.push _willLive( board, r, c ) or _newCell( board, r, c )
 
           newBoard.push newRow
+
+        _checkForEndGame newBoard
 
         return newBoard
 
@@ -79,28 +95,39 @@ angular
 
       @autoGenerate   = false
 
+      @isItOver       = false
+
       # define public functions
       @newGame = ->
         @history  = []
         @board    = _init @height, @width, @random
+        @isItOver = false
 
       @stopAutoRun = ->
         $interval.cancel @autoGenerate
         @auto = !@auto
 
       @nextGeneration = ->
-        @history.push @board
+        unless @isItOver
+          @history.push @board
 
-        @board = _figureNextGeneration @board unless @auto
+          @board = _figureNextGeneration @board unless @auto
 
-        if @auto
-          @autoGenerate = $interval ( =>
-            @history.push @board
+          if @auto
+            @autoGenerate = $interval ( =>
+              @history.push @board
 
-            @board = _figureNextGeneration @board
+              @board = _figureNextGeneration @board
 
-            return
-          ), @interval
+              # Check to see if the game is over
+              # if it is kill the interval
+              if @isItOver
+                $interval.cancel @autoGenerate
+
+                @auto = !@auto
+
+              return
+            ), @interval
 
       @previousGeneration = ( index ) ->
         @board    = @history[index]
