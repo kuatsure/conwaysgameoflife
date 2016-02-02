@@ -3,7 +3,8 @@
 angular
   .module('conwaysGameOfLifeApp')
   .controller 'AppController',
-    [ ->
+    [ '$interval',
+    (  $interval )->
 
       # define private functions
       _init = ( height, width ) ->
@@ -80,6 +81,15 @@ angular
         @history.push @board
 
         @board = _figureNextGeneration @board unless @auto
+
+        if @auto
+          $interval ( =>
+            @history.push @board
+
+            @board = _figureNextGeneration @board
+
+            return
+          ), 1500
 
       @previousGeneration = ( index ) ->
         @board    = @history[index]
