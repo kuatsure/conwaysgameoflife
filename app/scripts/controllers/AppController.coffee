@@ -113,6 +113,8 @@ angular
 
         @board[row][cell] = !@board[row][cell]
 
+        $interval.cancel @autoGenerate if @auto
+
       @cellClass = ( row, cell ) ->
         selector = ''
 
