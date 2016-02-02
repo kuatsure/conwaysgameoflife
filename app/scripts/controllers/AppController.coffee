@@ -7,7 +7,7 @@ angular
     (  $interval )->
 
       # define private functions
-      _init = ( height, width ) ->
+      _init = ( height, width, random ) ->
         board = []
 
 
@@ -15,7 +15,11 @@ angular
           row = []
 
           for [ 0...width ]
-            row.push false
+            if random
+              row.push Math.random() >= 0.5
+
+            else
+              row.push false
 
           board.push row
 
