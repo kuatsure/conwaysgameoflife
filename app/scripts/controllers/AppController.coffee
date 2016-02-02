@@ -68,6 +68,7 @@ angular
       # Assign simple scoped variables
       @height   = 15
       @width    = 15
+      @interval = 1500
 
       @random   = false
       @auto     = false
@@ -89,7 +90,7 @@ angular
             @board = _figureNextGeneration @board
 
             return
-          ), 1500
+          ), @interval
 
       @previousGeneration = ( index ) ->
         @board    = @history[index]
