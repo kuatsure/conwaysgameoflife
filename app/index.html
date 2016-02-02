@@ -22,8 +22,9 @@
   Height: <input type="text" ng-model="app.height" />
   Width: <input type="text" ng-model="app.width" />
 
-  <div class="btn btn--small" ng-click="app.newGame()">
-    New
+  <div class="btn btn--small btn--combo">
+    <span ng-click="app.random = !app.random"><i class="fa" ng-class="app.random ? 'fa-check-square-o' : 'fa-square-o'"></i></span>
+    <span ng-click="app.newGame()">New Game</span>
   </div>
 
   <div class="btn btn--small btn--positive" ng-click="app.nextGeneration()">

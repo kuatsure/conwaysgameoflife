@@ -16,3 +16,15 @@
     background-color: shade( $green, 20% );
   }
 }
+
+.btn--combo {
+  > * {
+    display: inline-block;
+
+    &:first-of-type {
+      width: 24px;
+      border-right: 1px solid $white;
+      padding-right: 6px;
+    }
+  }
+}
