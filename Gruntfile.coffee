@@ -233,7 +233,7 @@ module.exports = ( grunt ) ->
       options:
         dest: '<%= config.dist %>'
       html: [
-        '<%= config.dist %>/**/development.html'
+        '<%= config.dist %>/**/index.html'
       ]
 
     usemin:
@@ -337,6 +337,6 @@ module.exports = ( grunt ) ->
 
   grunt.registerTask 'default', [
     'coffeelint'
-    'build'
   ]
+
   return
