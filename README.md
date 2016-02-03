@@ -33,3 +33,17 @@ Want to run the project locally?
 ```sh
 $ grunt serve
 ```
+
+## How to Play
+
+### New Game
+
+You can start a new game by pressing `New Game` to clear the board and start a new game. Also the game can be completely random by toggling the box next to the button.
+
+### Next Generation
+
+You can step through the generations via the `Next Generation` button. Toggling the box next to that will start the `AutoRun` interval. You can then stop it whenever using the `Stop AutoRun` button.
+
+### Neat things
+
+You can also travel back in time using the `history` section. Also clicking on a square in the board will toggle that cell to be alive. Animations are provided by CSS transitions & the `$interval` service in angular. Board size and `$interval` ( in milliseconds ) can be set as well - to apply it to the game just hit `New Game`.
