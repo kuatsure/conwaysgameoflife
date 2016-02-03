@@ -2,7 +2,7 @@
   "name": "conwaysgameoflife",
   "private": true,
   "description": "Conway's Game of Life in Angular",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "authors": [
     {
       "name": "Jarrett Drouillard",
