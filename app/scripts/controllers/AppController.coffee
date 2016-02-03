@@ -112,6 +112,8 @@ angular
         @isItOver = false
         @auto     = false
 
+        $interval.cancel @autoGenerate
+
       @stopAutoRun = ->
         $interval.cancel @autoGenerate
         @auto = !@auto
