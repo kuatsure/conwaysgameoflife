@@ -12,6 +12,12 @@
 * node
 * ruby / bundler
 
+Bundler can be installed via:
+
+```sh
+$ gem install bundler
+```
+
 ## Install
 
 ```sh
